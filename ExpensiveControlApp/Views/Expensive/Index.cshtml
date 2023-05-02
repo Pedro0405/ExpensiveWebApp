@@ -1,0 +1,70 @@
+﻿@model ExpensiveControlApp.DTOs.ListExpensiveDTO
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class= "row">
+    <div class="col-sm">
+        <h1> Controle de Despesas </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+    <a asp-action="Creat" asp-controller="Expensive" class ="btn btn-primary btn-lg btn-block"> Nova Despesa</a>    
+    </div>
+</div>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"> </div>
+    <div class="row">
+       <div class="col-md-4">
+           <div class="form-group"> 
+               <input asp-for="StartDate" type="date" placeholder="digite a data inicial" class="form-control" />
+           </div>
+      </div>
+      <div class="col-md-4">
+           <div class="form-group"> 
+               <input asp-for="EndDate" type="date" placeholder="digite a data final" class="form-control" />
+           </div>
+      </div>
+        <div class="col-md-4">
+           <div class="form-group"> 
+               <button type="submit" class="btn btn-primary btn-lg">Buscar </button>
+           </div>
+      </div>
+ </div>
+</form>
+
+  <div class="row">
+      <div class="col-md">
+          <table class="table"> 
+          <thead>
+              <tr> 
+                  <th> Id </th>
+                  <th> Descrição </th>
+                  <th> Data </th>
+                  <th> Valor </th>
+              </tr>
+          </thead>
+          <tbody>
+                @if(Model.Itens.Count > 0)
+                {
+                    foreach(var item in Model.Itens)
+                    {
+                            <tr>
+                                <td>@item.id</td>
+                                <td>@item.descricao</td>
+                                <td>@item.date.ToString("dd/MM/yyyy")</td>
+                                <td>@item.valor </td>
+                            </tr>
+                    }
+                }
+                {
+                    <tr>
+                        <td colspan="4">Nenhumk registro encontrado.</td>
+                    </tr>
+
+                }
+            </tbody>
+          </table>
+      </div>
+  </div>

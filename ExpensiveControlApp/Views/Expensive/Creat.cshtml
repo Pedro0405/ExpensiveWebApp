@@ -1,0 +1,55 @@
+﻿@model ExpensiveControlApp.DTOs.CreateExpensiveDTO
+@{
+    ViewData["Title"] = "Pagina de cadastro";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center"> Cadastro de Despesas</h1>
+    </div>
+</div>
+<form method="post">
+        <div asp-validation-summary="All" class="text-danger"> </div>
+    <div class="row">
+    <div class="col-md-12">
+         <div class="form-group">
+       <label for="Descricao">Descrição</label>
+       <input asp-for="descricao" type="text" placeholder="Digite a descrição aqui" id="Descricao" />
+        </div>
+    </div>
+</div>
+<br />
+    <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+       <label for="Valor">Valor</label>
+       <input asp-for = 'valor' type="number" placeholder="Digite o valor aqui" id="Valor" />
+       </div>
+    </div>
+</div>
+<br />
+    <div class="row">
+    <div class="col-md-12">
+         <div class="form-group">
+       <label for=" date">Data</label>
+       <input asp-for = "date" type="date" placeholder="Agende uma data aqui" id="date" />
+        </div>
+    </div>
+</div>
+<br />
+  <div class="row">
+      <div class="col-md-12">
+         <div class="d-grid">
+
+<a asp-action="index" type="submit" class="btn btn-primary btn-login text-uppercase fw-bold"> Voltar </a>
+         </div>
+    </div>
+</div>
+  <div class="row">
+      <div class="col-md-12">
+         <div class="d-grid">
+
+<button type="submit" class="btn btn-secondary btn-login text-uppercase fw-bold">Adcionar </button>
+         </div>
+    </div>
+</div>
+</form>
